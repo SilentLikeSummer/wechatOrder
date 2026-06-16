@@ -3,7 +3,7 @@ const app = getApp()
 const db = wx.cloud.database()
 Page({
   data: {
-    tabs: ['全部', '点餐订单', '充值订单'],
+    tabs: ['点餐订单'],
     currentTab: 0,
     orderList: [], // 订单列表
     // 分页相关
@@ -83,14 +83,8 @@ Page({
         pay_status: true // 只展示已支付成功的订单
       }
       
-      // 根据标签筛选
-      if (this.data.currentTab === 1) {
-        // 点餐订单
-        query.type = 'order'
-      } else if (this.data.currentTab === 2) {
-        // 充值订单
-        query.type = 'recharge'
-      }
+      // 家庭场景只展示点餐订单（已去掉充值）
+      query.type = 'order'
       
       const pageSize = this.data.orderPageSize
       const page = append ? this.data.orderPage + 1 : 0

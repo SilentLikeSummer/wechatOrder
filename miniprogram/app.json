@@ -35,12 +35,6 @@
         "text": "点餐"
       },
       {
-        "pagePath": "pages/recharge/recharge",
-        "iconPath": "images/tabBar/recharge.png",
-        "selectedIconPath": "images/tabBar/recharge-active.png",
-        "text": "充值"
-      },
-      {
         "pagePath": "pages/myorder/myorder",
         "iconPath": "images/tabBar/myOrder.png",
         "selectedIconPath": "images/tabBar/myOrder-active.png",

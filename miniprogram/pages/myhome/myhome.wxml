@@ -10,44 +10,16 @@
         <view class="user-name" wx:if="{{userInfo.nickName}}">
           {{userInfo && userInfo.nickName ? userInfo.nickName : '餐饮会员'}}
         </view>
-        <view class="user-phone" wx:if="{{userInfo && userInfo.phoneNumber}}">
-          {{userInfo.phoneNumber}}
-        </view>
-        <view class="user-phone login-prompt-text" wx:else>
+        <view class="user-phone login-prompt-text" wx:if="{{!userInfo || !userInfo.nickName}}">
           请先完善个人信息
         </view>
-        <button 
-          class="login-btn-inline" 
-          wx:if="{{!userInfo || !userInfo.phoneNumber}}"
+        <button
+          class="login-btn-inline"
+          wx:if="{{!userInfo || !userInfo.nickName}}"
           bindtap="showAuthModal">
           点击完善个人信息
         </button>
       </view>
-    </view>
-  </view>
-
-  <!-- 会员余额卡片 -->
-  <view class="balance-card">
-    <view class="balance-item">
-      <view class="balance-icon">💰</view>
-      <view class="balance-content">
-        <view class="balance-label">账户余额</view>
-        <view class="balance-amount">¥{{userInfo.balance || 0}}</view>
-      </view>
-    </view>
-    <view class="balance-item" >
-      <view class="balance-icon">🎁</view>
-      <view class="balance-content">
-        <view class="balance-label">免单次数</view>
-        <view class="balance-amount">{{miandanCount}}次</view>
-      </view>
-    </view>
-  </view>
-
-  <!-- 充值按钮 -->
-  <view class="action-card">
-    <view class="action-btn-large" bindtap="goToRecharge">
-      <text>💳 立即充值</text>
     </view>
   </view>
 
