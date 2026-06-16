@@ -73,6 +73,11 @@
           </view>
         </view>
         
+        <!-- 下单备注 -->
+        <view class="order-remark" wx:if="{{item.remark}}" style="margin-top:12rpx;padding:12rpx 16rpx;background:#fff7e6;border-radius:8rpx;font-size:26rpx;color:#d46b08;">
+          📝 备注：{{item.remark}}
+        </view>
+
         <!-- 免单标识 -->
         <view class="miandan-tag" wx:if="{{item.useMiandan}}">
           <text>🎁 使用免单机会</text>

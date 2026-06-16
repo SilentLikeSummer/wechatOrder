@@ -1,9 +1,11 @@
 // pages/myorder/myorder.js
 const app = getApp()
 const db = wx.cloud.database()
+const config = require('../../config.js')
 Page({
   data: {
     tabs: ['点餐订单'],
+    showPrice: config.showPrice, // 是否显示价格（config.js）
     currentTab: 0,
     orderList: [], // 订单列表
     // 分页相关

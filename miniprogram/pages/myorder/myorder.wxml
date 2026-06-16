@@ -69,13 +69,16 @@
                 <van-tag type="danger" wx:for="{{goods.tags}}" wx:key="index" wx:for-item="tagVal">{{tagVal}}</van-tag>
               </view>
               <view class="goods-detail">
-                <text class="goods-price">¥{{goods.price}}</text>
+                <text class="goods-price" wx:if="{{showPrice}}">¥{{goods.price}}</text>
                 <text class="goods-count">x{{goods.count}}</text>
               </view>
             </view>
           </view>
         </view>
         
+        <!-- 下单备注 -->
+        <view class="order-remark" wx:if="{{item.remark}}" style="margin-top:8rpx;font-size:24rpx;color:#d46b08;">📝 {{item.remark}}</view>
+
         <!-- 免单标识 -->
         <view class="miandan-tag" wx:if="{{item.useMiandan}}">
           <text>🎁 使用免单机会</text>
@@ -93,7 +96,7 @@
           </view>
         </view>
         <view class="order-actions">
-          <view class="order-price">
+          <view class="order-price" wx:if="{{showPrice}}">
             <text class="price-label">实付：</text>
             <text class="price-num">¥{{item.type === 'recharge' ? item.amount : item.finalPrice}}</text>
           </view>

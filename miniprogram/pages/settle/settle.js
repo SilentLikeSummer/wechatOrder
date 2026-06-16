@@ -12,6 +12,9 @@ Page({
     tableNumber: '', // 桌码号
     payMethod: 'balance', // 支付方式：miandan-免单，balance-余额，wechat-微信
     familyFreeMode: config.familyFreeMode, // 家庭免支付模式（统一在 miniprogram/config.js 配置）：开启后下单直接生成"已支付"订单且无需桌码
+    showPrice: config.showPrice, // 是否显示价格（config.js）
+    showOrderType: config.showOrderType, // 是否显示堂食/打包（config.js）
+    remark: '', // 下单备注
     userInfo: null, // 用户信息
     userBalance: 0, // 用户余额
     useMiandan: false, // 是否使用免单
@@ -411,6 +414,11 @@ Page({
     this.setData({ canSubmit })
   },
 
+  // 备注输入
+  onRemarkInput(e) {
+    this.setData({ remark: e.detail.value })
+  },
+
   // 提交订单
   async submitOrder(e) {
     // 如果按钮被禁用，直接返回
@@ -530,7 +538,8 @@ Page({
           payWithBalance: payWithBalance,
           freeOrder: familyFreeMode,
           tableNumber: this.data.tableNumber,
-          orderType: this.data.orderType
+          orderType: this.data.orderType,
+          remark: this.data.remark
         }
       })
 

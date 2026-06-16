@@ -1,8 +1,8 @@
 <!--pages/settle/settle.wxml-->
 <wxs module="priceHelper" src="../../utils/priceHelper.wxs"></wxs>
 <view class="page">
-  <!-- 订单类型选择 -->
-  <view class="section">
+  <!-- 订单类型选择（家庭模式下隐藏） -->
+  <view class="section" wx:if="{{showOrderType}}">
     <view class="order-type-list">
       <view 
         class="order-type-item {{orderType === 'dineIn' ? 'active' : ''}}"
@@ -56,17 +56,23 @@
           </view>
           <text class="miandan-tip" wx:if="{{item.canUseMiandan}}">可参与免单活动</text>
           <view class="goods-price-count">
-            <text class="goods-price">¥{{item.price}}</text>
+            <text class="goods-price" wx:if="{{showPrice}}">¥{{item.price}}</text>
             <text class="goods-count">×{{item.count}}</text>
           </view>
         </view>
-        <view class="goods-subtotal">
+        <view class="goods-subtotal" wx:if="{{showPrice}}">
           ¥{{item.subtotal}}
         </view>
       </view>
       
       <van-empty wx:if="{{orderGoods.length === 0}}" description="购物车为空" />
     </view>
+  </view>
+
+  <!-- 下单备注 -->
+  <view class="section">
+    <view class="section-title">备注</view>
+    <textarea class="remark-input" style="width:100%;box-sizing:border-box;min-height:110rpx;padding:16rpx;background:#f7f7f7;border-radius:12rpx;font-size:28rpx;margin-top:12rpx;" placeholder="口味、忌口等，如：不要香菜、给娃做小份" value="{{remark}}" bindinput="onRemarkInput" maxlength="100" />
   </view>
 
   <!-- 支付方式（家庭免支付模式下隐藏，所有下单统一按免费处理） -->
@@ -126,7 +132,7 @@
 
   <!-- 底部提交按钮 -->
   <view class="footer">
-    <view class="footer-price">
+    <view class="footer-price" wx:if="{{showPrice}}">
       <text class="footer-label">{{familyFreeMode ? '合计：' : '实付：'}}</text>
       <text class="footer-price-num">¥{{priceHelper.formatPrice(finalPrice)}}</text>
     </view>

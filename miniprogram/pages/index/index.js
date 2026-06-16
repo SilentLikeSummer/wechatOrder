@@ -26,6 +26,7 @@ Page({
     statusBarHeight: 0, // 状态栏高度
     tableNumber: '', // 桌码号
     familyFreeMode: config.familyFreeMode, // 家庭免支付模式（统一在 miniprogram/config.js 配置）
+    showPrice: config.showPrice, // 是否显示价格（config.js）
     // 菜品分页
     goodsPage: 0,
     goodsPageSize: 20,
@@ -80,6 +81,10 @@ Page({
         this.setData({
           shopInfo: res.data[0]
         })
+        // 顶部标题跟随「店铺设置」里的店名（在后台改店名即可改标题）
+        if (res.data[0].name) {
+          wx.setNavigationBarTitle({ title: res.data[0].name })
+        }
       }
     } catch (err) {
       console.error('加载店铺信息失败', err)

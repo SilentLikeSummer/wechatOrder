@@ -252,7 +252,8 @@ exports.main = async (event, context) => {
     payWithBalance,    // 是否使用余额支付
     freeOrder,         // 是否家庭免支付下单（直接标记为已支付，不扣余额、不接微信支付）
     tableNumber,       // 桌码号
-    orderType          // 订单类型：dineIn-堂食，takeOut-打包
+    orderType,         // 订单类型：dineIn-堂食，takeOut-打包
+    remark             // 下单备注
   } = event
 
   try {
@@ -327,7 +328,9 @@ exports.main = async (event, context) => {
         userAvatar: user.avatarUrl || '',
         userPhone: user.phoneNumber || '',
         // 桌码号
-        tableNumber: tableNumber || ''
+        tableNumber: tableNumber || '',
+        // 下单备注
+        remark: remark || ''
       }
 
       const orderRes = await transaction.collection('order').add({
