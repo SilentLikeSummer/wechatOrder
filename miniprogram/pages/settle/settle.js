@@ -427,7 +427,7 @@ Page({
 
     // 检查用户信息完整性（使用最新的用户信息）
     const userInfo = this.data.userInfo
-    if (!userInfo || !userInfo.avatarUrl || !userInfo.nickName || !userInfo.phoneNumber) {
+    if (!userInfo || !userInfo.avatarUrl || !userInfo.nickName) {
       // 保存用户当前选择的支付方式，以便完善信息后恢复
       this.setData({
         showAuthModal: true,
