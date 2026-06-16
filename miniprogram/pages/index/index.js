@@ -70,6 +70,8 @@ Page({
 
   onShow() {
     this.loadUserInfo()
+    this.loadShopInfo() // 每次回到菜单页都刷新店名/标题，改完店铺设置立即生效
+    this.loadNotices() // 同时刷新公告
   },
 
   // 加载店铺信息
