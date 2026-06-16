@@ -2,23 +2,20 @@
 <view class="page">
   <!-- 用户头部（统一布局） -->
   <view class="user-header">
-    <view class="user-main">
+    <view class="user-main" bindtap="showAuthModal">
       <view class="user-avatar">
         <image src="{{userInfo && userInfo.avatarUrl ? userInfo.avatarUrl : '/images/tabBar/me.png'}}" mode="aspectFill"></image>
       </view>
       <view class="user-detail">
-        <view class="user-name" wx:if="{{userInfo.nickName}}">
-          {{userInfo && userInfo.nickName ? userInfo.nickName : '餐饮会员'}}
+        <view class="user-name" wx:if="{{userInfo && userInfo.nickName}}">
+          {{userInfo.nickName}}
         </view>
         <view class="user-phone login-prompt-text" wx:if="{{!userInfo || !userInfo.nickName}}">
-          请先完善个人信息
+          请先完善个人信息 ›
         </view>
-        <button
-          class="login-btn-inline"
-          wx:if="{{!userInfo || !userInfo.nickName}}"
-          bindtap="showAuthModal">
-          点击完善个人信息
-        </button>
+        <view class="user-phone login-prompt-text" wx:else>
+          点击修改头像 / 昵称 ›
+        </view>
       </view>
     </view>
   </view>
