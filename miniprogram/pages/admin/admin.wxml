@@ -30,12 +30,6 @@
         text="公告管理" 
         bind:click="goToNotice"
       />
-      <van-grid-item 
-        icon="qr-invalid" 
-        icon-color="#38b2ac"
-        text="桌码管理" 
-        bind:click="goToTableCode"
-      />
     </van-grid>
   </view>
 
