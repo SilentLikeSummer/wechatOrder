@@ -88,15 +88,9 @@
           <view class="order-table-code" wx:if="{{item.tableNumber}}">
             桌码：{{item.tableNumber}}
           </view>
-          <!-- 打印状态 -->
-          <view class="order-print-status">
-            <text class="print-status-text {{item.printStatus === 2 ? 'printed' : item.printStatus === 3 ? 'failed' : item.printStatus === 4 ? 'cancelled' : 'not-printed'}}">
-              {{item.printStatus === 2 ? '✅ 已打印小票' : item.printStatus === 3 ? '❌ 打印失败' : item.printStatus === 4 ? '🚫 打印已取消' : '⏳ 未打印小票'}}
-            </text>
-          </view>
         </view>
         <view class="order-actions">
-          <view class="order-price">
+          <view class="order-price" wx:if="{{showPrice}}">
             <text class="price-label">实付：</text>
             <text class="price-num">¥{{item.type === 'recharge' ? item.amount : item.finalPrice}}</text>
           </view>

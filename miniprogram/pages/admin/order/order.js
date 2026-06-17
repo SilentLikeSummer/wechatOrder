@@ -5,6 +5,7 @@ const config = require('../../../config.js')
 Page({
   data: {
     showImage: config.showImage, // 是否显示图片（config.js）
+    showPrice: config.showPrice, // 是否显示价格（config.js）
     orders: [],
     orderType: 0, // 0: 全部, 1: 点餐订单（已去掉充值订单）
     typeOptions: [
