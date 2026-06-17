@@ -51,10 +51,8 @@ Page({
         pay_status: true // 只获取已支付成功的订单
       }
       
-      // 按类型筛选（已去掉充值订单：0=全部，1=点餐）
-      if (this.data.orderType === 1) {
-        where.type = 'order'
-      }
+      // 已去掉tab：订单管理只展示点餐订单
+      where.type = 'order'
       
       const pageSize = this.data.orderPageSize
       const page = append ? this.data.orderPage + 1 : 0

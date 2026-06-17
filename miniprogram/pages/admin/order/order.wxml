@@ -2,10 +2,6 @@
 <view class="page">
   <!-- 筛选栏 -->
   <view class="filter-bar">
-    <van-tabs active="{{orderType}}" bind:change="onChange" color="#e54d42" swipeable="{{false}}">
-      <van-tab title="全部订单" />
-      <van-tab title="点餐订单" />
-    </van-tabs>
     <view class="refresh-bar">
       <view class="refresh-btn" bindtap="refreshOrders">刷新</view>
       <text class="refresh-tip">每 10 秒自动刷新</text>
