@@ -344,6 +344,7 @@
 
 .modal-content {
   flex: 1;
+  min-height: 0;
   padding: 30rpx;
   overflow-y: auto;
 }
