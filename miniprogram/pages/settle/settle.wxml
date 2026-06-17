@@ -54,7 +54,6 @@
               {{tagVal}}
             </van-tag>
           </view>
-          <text class="miandan-tip" wx:if="{{item.canUseMiandan}}">可参与免单活动</text>
           <view class="goods-price-count">
             <text class="goods-price" wx:if="{{showPrice}}">¥{{item.price}}</text>
             <text class="goods-count">×{{item.count}}</text>

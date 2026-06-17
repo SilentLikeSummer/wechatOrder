@@ -465,12 +465,6 @@ Page({
     })
   },
 
-  // 切换可参与免单
-  onCanUseMiandanChange(e) {
-    this.setData({
-      'currentDish.canUseMiandan': e.detail.value
-    })
-  },
 
   // 选择菜品图片
   async chooseDishImage() {

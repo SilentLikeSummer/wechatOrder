@@ -24,14 +24,8 @@
         text="订单管理" 
         bind:click="goToOrder"
       />
-      <van-grid-item 
-        icon="credit-pay" 
-        icon-color="#ff976a"
-        text="充值选项管理" 
-        bind:click="goToRechargeOptions"
-      />
-      <van-grid-item 
-        icon="volume-o" 
+      <van-grid-item
+        icon="volume-o"
         icon-color="#ffd700"
         text="公告管理" 
         bind:click="goToNotice"
@@ -55,17 +49,11 @@
         text="店铺设置" 
         bind:click="goToShopInfo"
       />
-      <van-grid-item 
-        icon="lock" 
+      <van-grid-item
+        icon="lock"
         icon-color="#646566"
-        text="修改密码" 
+        text="修改密码"
         bind:click="showChangePassword"
-      />
-      <van-grid-item 
-        icon="printer" 
-        icon-color="#ff9800"
-        text="打印机管理" 
-        bind:click="goToPrinter"
       />
     </van-grid>
   </view>
