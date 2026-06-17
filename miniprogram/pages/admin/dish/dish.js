@@ -1,8 +1,11 @@
 // pages/admin/dish/dish.js
 const db = wx.cloud.database()
+const config = require('../../../config.js')
 
 Page({
   data: {
+    showImage: config.showImage, // 是否显示/需要菜品图片（config.js）
+    showPrice: config.showPrice, // 是否显示/需要菜品售价（config.js）
     // 分类相关
     categories: [],
     currentCategoryId: '', // 当前选中的分类ID
@@ -512,15 +515,6 @@ Page({
   async saveDish() {
     const { editDishMode, currentDish } = this.data
 
-    // 验证必填项：图片
-    if (!currentDish.image || !currentDish.image.trim()) {
-      wx.showToast({
-        title: '请上传菜品图片',
-        icon: 'none'
-      })
-      return
-    }
-
     // 验证必填项：名称
     if (!currentDish.name || !currentDish.name.trim()) {
       wx.showToast({
@@ -557,66 +551,9 @@ Page({
       return
     }
 
-    // 验证价格：不能为空、不能为负数、最高10000
-    const price = parseFloat(currentDish.price)
-    if (isNaN(price) || price === '' || price === null || price === undefined) {
-      wx.showToast({
-        title: '请输入售价',
-        icon: 'none'
-      })
-      return
-    }
-
-    if (price < 0) {
-      wx.showToast({
-        title: '售价不能为负数',
-        icon: 'none'
-      })
-      return
-    }
-
-    if (price > 10000) {
-      wx.showToast({
-        title: '售价最高10000',
-        icon: 'none'
-      })
-      return
-    }
-
-    // 验证必填项：原价
-    const originalPrice = parseFloat(currentDish.originalPrice)
-    if (isNaN(originalPrice) || originalPrice === '' || originalPrice === null || originalPrice === undefined) {
-      wx.showToast({
-        title: '请输入原价',
-        icon: 'none'
-      })
-      return
-    }
-
-    if (originalPrice < 0) {
-      wx.showToast({
-        title: '原价不能为负数',
-        icon: 'none'
-      })
-      return
-    }
-
-    if (originalPrice > 10000) {
-      wx.showToast({
-        title: '原价最高10000',
-        icon: 'none'
-      })
-      return
-    }
-
-    // 验证原价不能小于售价
-    if (originalPrice < price) {
-      wx.showToast({
-        title: '原价不能小于售价',
-        icon: 'none'
-      })
-      return
-    }
+    // 家庭场景：售价/原价非必填，留空默认 0
+    const price = isNaN(parseFloat(currentDish.price)) ? 0 : parseFloat(currentDish.price)
+    const originalPrice = isNaN(parseFloat(currentDish.originalPrice)) ? 0 : parseFloat(currentDish.originalPrice)
 
     try {
       wx.showLoading({ title: '保存中...' })

@@ -1,8 +1,10 @@
 // pages/admin/order/order.js
 const db = wx.cloud.database()
+const config = require('../../../config.js')
 
 Page({
   data: {
+    showImage: config.showImage, // 是否显示图片（config.js）
     orders: [],
     orderType: 0, // 0: 全部, 1: 充值订单, 2: 点餐订单
     typeOptions: [

@@ -66,7 +66,7 @@ Component({
         })
         return
       }
-      
+
       if (!nickName || !nickName.trim()) {
         wx.showToast({
           title: '请输入昵称',

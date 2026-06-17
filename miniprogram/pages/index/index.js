@@ -27,6 +27,7 @@ Page({
     tableNumber: '', // 桌码号
     familyFreeMode: config.familyFreeMode, // 家庭免支付模式（统一在 miniprogram/config.js 配置）
     showPrice: config.showPrice, // 是否显示价格（config.js）
+    showImage: config.showImage, // 是否显示图片（config.js）
     // 菜品分页
     goodsPage: 0,
     goodsPageSize: 20,

@@ -53,7 +53,7 @@
             <view class="dish-name">{{item.name}}</view>
             <view class="dish-desc">{{item.description || '暂无描述'}}</view>
             <text class="miandan-tip" wx:if="{{item.canUseMiandan === true}}">可参与免单活动</text>
-            <view class="dish-price">
+            <view class="dish-price" wx:if="{{showPrice}}">
               <text class="price-current">¥{{item.price}}</text>
               <text class="price-original" wx:if="{{item.originalPrice > 0}}">¥{{item.originalPrice}}</text>
             </view>
@@ -125,29 +125,29 @@
             bindinput="onDishNameInput"
           />
         </view>
-        <view class="form-item">
-          <view class="form-label">菜品图片<text class="required-mark">*</text></view>
+        <view class="form-item" wx:if="{{showImage}}">
+          <view class="form-label">菜品图片</view>
           <view class="image-upload" bindtap="chooseDishImage">
             <image wx:if="{{currentDish.image}}" src="{{currentDish.image}}" mode="aspectFill"></image>
             <view wx:else class="upload-placeholder">点击上传图片</view>
           </view>
         </view>
-        <view class="form-item">
-          <view class="form-label">售价<text class="required-mark">*</text></view>
-          <input 
-            class="form-input" 
-            type="digit" 
-            placeholder="请输入售价（0-10000）" 
+        <view class="form-item" wx:if="{{showPrice}}">
+          <view class="form-label">售价</view>
+          <input
+            class="form-input"
+            type="digit"
+            placeholder="请输入售价（0-10000）"
             value="{{currentDish.price}}"
             bindinput="onDishPriceInput"
           />
         </view>
-        <view class="form-item">
-          <view class="form-label">原价<text class="required-mark">*</text></view>
-          <input 
-            class="form-input" 
-            type="digit" 
-            placeholder="请输入原价（不能小于售价，0-10000）" 
+        <view class="form-item" wx:if="{{showPrice}}">
+          <view class="form-label">原价</view>
+          <input
+            class="form-input"
+            type="digit"
+            placeholder="请输入原价（不能小于售价，0-10000）"
             value="{{currentDish.originalPrice}}"
             bindinput="onDishOriginalPriceInput"
           />

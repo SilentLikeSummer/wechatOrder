@@ -42,7 +42,7 @@
     </view>
     <view class="goods-list">
       <view class="goods-item" wx:for="{{orderGoods}}" wx:key="dishId">
-        <image class="goods-image" src="{{item.dishImage}}" mode="aspectFill"></image>
+        <image class="goods-image" wx:if="{{showImage}}" src="{{item.dishImage}}" mode="aspectFill"></image>
         <view class="goods-info">
           <view class="goods-name">{{item.dishName}}</view>
           <view class="goods-tags" wx:if="{{item.tags && item.tags.length > 0}}">

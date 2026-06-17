@@ -6,6 +6,7 @@ Page({
   data: {
     tabs: ['点餐订单'],
     showPrice: config.showPrice, // 是否显示价格（config.js）
+    showImage: config.showImage, // 是否显示图片（config.js）
     currentTab: 0,
     orderList: [], // 订单列表
     // 分页相关

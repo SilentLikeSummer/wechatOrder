@@ -5,8 +5,11 @@ module.exports = {
   //   false = 恢复原商用模式（微信支付 + 必须扫桌码）
   familyFreeMode: true,
 
-  // 是否显示价格：false = 隐藏菜单/结算/订单里所有 ¥ 价格（家庭免费点餐推荐）
+  // 是否显示价格：false = 隐藏菜单/结算/订单所有 ¥ 价格，且后台菜品免填售价（家庭免费点餐推荐）
   showPrice: false,
+
+  // 是否显示菜品图片：false = 菜单/结算/订单不显示图片，且后台菜品免传图（家庭省事推荐）
+  showImage: false,
 
   // 是否显示「堂食/打包」选择：false = 隐藏（家庭点餐用不到）
   showOrderType: false

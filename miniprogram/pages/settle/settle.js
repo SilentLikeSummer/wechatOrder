@@ -13,6 +13,7 @@ Page({
     payMethod: 'balance', // 支付方式：miandan-免单，balance-余额，wechat-微信
     familyFreeMode: config.familyFreeMode, // 家庭免支付模式（统一在 miniprogram/config.js 配置）：开启后下单直接生成"已支付"订单且无需桌码
     showPrice: config.showPrice, // 是否显示价格（config.js）
+    showImage: config.showImage, // 是否显示图片（config.js）
     showOrderType: config.showOrderType, // 是否显示堂食/打包（config.js）
     remark: '', // 下单备注
     userInfo: null, // 用户信息
