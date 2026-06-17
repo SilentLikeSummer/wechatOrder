@@ -377,11 +377,11 @@ Page({
   // 输入菜品名称
   onDishNameInput(e) {
     let value = e.detail.value
-    // 限制最多10个字
-    if (value.length > 10) {
-      value = value.substring(0, 10)
+    // 限制最多20个字
+    if (value.length > 20) {
+      value = value.substring(0, 20)
       wx.showToast({
-        title: '名称最多10个字',
+        title: '名称最多20个字',
         icon: 'none'
       })
     }
@@ -445,11 +445,11 @@ Page({
   // 输入菜品描述
   onDishDescriptionInput(e) {
     let value = e.detail.value
-    // 限制最多10个字
-    if (value.length > 10) {
-      value = value.substring(0, 10)
+    // 限制最多200个字
+    if (value.length > 200) {
+      value = value.substring(0, 200)
       wx.showToast({
-        title: '描述最多10个字',
+        title: '描述最多200个字',
         icon: 'none'
       })
     }
@@ -518,19 +518,19 @@ Page({
       return
     }
 
-    // 验证名称字数（最多10个字）
-    if (currentDish.name.trim().length > 10) {
+    // 验证名称字数（最多20个字）
+    if (currentDish.name.trim().length > 20) {
       wx.showToast({
-        title: '菜品名称最多10个字',
+        title: '菜品名称最多20个字',
         icon: 'none'
       })
       return
     }
 
-    // 验证描述字数（最多10个字）
-    if (currentDish.description && currentDish.description.trim().length > 10) {
+    // 验证描述字数（最多200个字）
+    if (currentDish.description && currentDish.description.trim().length > 200) {
       wx.showToast({
-        title: '菜品描述最多10个字',
+        title: '菜品描述最多200个字',
         icon: 'none'
       })
       return

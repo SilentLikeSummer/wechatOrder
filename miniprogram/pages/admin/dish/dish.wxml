@@ -118,8 +118,8 @@
           <view class="form-label">菜品名称<text class="required-mark">*</text></view>
           <input 
             class="form-input" 
-            placeholder="请输入菜品名称（最多10个字）" 
-            maxlength="10"
+            placeholder="请输入菜品名称（最多20个字）"
+            maxlength="20"
             value="{{currentDish.name}}"
             bindinput="onDishNameInput"
           />
@@ -155,8 +155,8 @@
           <view class="form-label">描述</view>
           <textarea 
             class="form-textarea" 
-            placeholder="请输入菜品描述（最多10个字）" 
-            maxlength="10"
+            placeholder="请输入菜品描述（最多200个字）"
+            maxlength="200"
             value="{{currentDish.description}}"
             bindinput="onDishDescriptionInput"
           />
